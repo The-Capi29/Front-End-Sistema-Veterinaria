@@ -1,0 +1,18 @@
+.card-img-top{
+    height: 300px;
+  
+}
+
+.card{
+    padding: 10px;
+}
+.pie-chart{
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.scrollable-content {
+    max-height: 700px; /* Ajusta la altura máxima según tus necesidades */
+    overflow-y: auto; /* Habilita el desbordamiento vertical */
+  }

@@ -1,0 +1,67 @@
+<section>
+  
+    <div class="form-box">
+      
+        <div class="form-value">
+            <form (ngSubmit) = "formSubmit()">
+                <h2>Registrate con tus datos</h2>
+                <div class="row" style="margin-top: 3%">
+                    <div class="col-lg-6">
+                        <div class="inputbox">
+                        
+                            <input  [(ngModel)] = "user.username" name = "username" type=""  name="username" required>
+                            <label for="">Usuario</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="inputbox">
+                        
+                            <input  [(ngModel)] = "user.password" name = "password" type="password"   required>
+                            <label for="">Constraseña</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="inputbox">
+                        
+                            <input  [(ngModel)] = "user.name"  type=""  name="name" required>
+                            <label for="">Nombres</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="inputbox">
+                        
+                            <input  [(ngModel)] = "user.lastname" type=""  name="lastname" required>
+                            <label for="">Apellidos</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="inputbox">
+                        
+                            <input  [(ngModel)] = "user.email" type=""  name="email" required>
+                            <label for="">Correo</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="inputbox">
+                        
+                            <input  [(ngModel)] = "user.phone"  type=""  name="phone" required>
+                            <label for="">Celular</label>
+                        </div>
+                    </div>
+                   
+                    
+                </div>
+               
+                <div class="button">
+                    <button>Registrarse</button>
+                </div>
+               
+                <div class="register">
+                    <p>Hola, puedes iniciar sesión <a routerLink="/">AQUI</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+  </section>
+  
+  

@@ -1,0 +1,26 @@
+.card-customers{
+    padding: 20px;
+}
+.card-veterinario{
+    position: relative;
+    right: 180px;
+}
+
+.card-mat{
+    height: 400px;
+    padding: 20px;
+}
+.descripcion{
+    width: 100%;
+}
+.invalid{
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 90%;
+    color: #dc3545;
+}
+
+.scrollable-content {
+    max-height: 700px; /* Ajusta la altura máxima según tus necesidades */
+    overflow-y: auto; /* Habilita el desbordamiento vertical */
+  }

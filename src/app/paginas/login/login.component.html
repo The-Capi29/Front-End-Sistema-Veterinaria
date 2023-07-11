@@ -1,0 +1,65 @@
+
+<section>
+  <div class="form-box">
+      <div class="form-value">
+          <form (ngSubmit)="formSubmit()">
+              <h2>Inicio de sesion</h2>
+              <div class="inputbox">
+                  
+                  <input type="" [(ngModel)] = "loginData.username" name="username" required>
+                  <label for="">Correo</label>
+              </div>
+              <div class="inputbox">
+                 
+                  <input type="password" [(ngModel)] = "loginData.password" name="password" required>
+                  <label for="">Contraseña</label>
+              </div>
+              
+              <button  type="submit">Ingresar</button>
+              <div class="register">
+                  <p>No tengo cuenta <a routerLink="/registro">Registro</a></p>
+              </div>
+          </form>
+      </div>
+  </div>
+</section>
+
+
+<!--
+<div class="bootstrap-wrapper">
+  <div class="container">
+    <div class="row mt20">
+      <div class="col-md-6 offset-md-3">
+        <mat-card class="container-form">
+          <div class="container text-center">
+            <img src="../../../assets/logo.png" width="100" height="100">
+          </div><br>
+
+          <h1 class="text-center">Inicio de sesión</h1>
+          <form  (ngSubmit)="formSubmit()" class="example-form example-container">
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Digite su nombre de usuario</mat-label>
+              <input [(ngModel)] = "loginData.username" name="username" matInput >
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Ingresar contraseña</mat-label>
+              <input [(ngModel)] = "loginData.password" name="password" matInput >
+              <button mat-icon-button matSuffix  [attr.aria-label]="'Hide password'"
+                >
+                <mat-icon></mat-icon>
+              </button>
+            </mat-form-field>
+            <br><br>
+
+            <div class="container text-center">
+              <button type="submit" mat-raised-button color="primary">Iniciar sesión</button>
+              <button type="reset" style="margin-left: 20px;" mat-raised-button color="accent">Limpiar</button>
+            </div>
+          </form>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
+
+-->

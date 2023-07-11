@@ -1,0 +1,110 @@
+<app-nav-sidebar></app-nav-sidebar>
+<app-nav-header></app-nav-header>
+
+<div class="content-wrapper"><br>
+  <section class="content scrollable-content">
+   
+        <div class="row">
+          <div class="col-md-3">
+
+            <!-- Profile Image -->
+            <div class="card card-primary card-outline">
+              <div class="card-body box-profile">
+                <div class="text-center">
+                    <img class="profile-user-img img-fluid img-circle"
+                    src="../../../assets/perfil.jpg"
+                    alt="User profile picture">
+                </div>
+
+                <h3 class="profile-username text-center">{{paciente.apodo}}</h3>
+
+                <p class="text-muted text-center">Especie: {{paciente.especie}}</p>
+
+                <ul class="list-group list-group-unbordered mb-3">
+                  <li class="list-group-item">
+                    <b>Edad</b> <a class="float-right">{{paciente.edad}}</a>
+                  </li>
+                  <li class="list-group-item">
+                    <b>Sexo</b> <a class="float-right">{{paciente.sexo}}</a>
+                  </li>
+                  <li class="list-group-item">
+                    <b>Tamaño</b> <a class="float-right">{{paciente.peso}} - kg</a>
+                  </li>
+                </ul>
+
+               
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+            <!-- About Me Box -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Información addicional</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <strong><i class="far fa-file-alt mr-1"></i> Fecha de nacimiento</strong>
+
+                <p class="text-muted">
+                 {{paciente.fechaNacimiento}}
+                </p>
+
+                <hr>
+
+                
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-9">
+            <div class="card">
+              
+              <div class="card-body">
+                <div class="tab-content">
+                  <div class="active tab-pane" id="activity">
+                    <!-- Post -->
+                    <div class="post">
+                      <div class="user-block">
+                        <img class="img-circle img-bordered-sm" src="../../../assets/user.jpg" alt="user image">
+                        <span class="username">
+                          <a href="#">{{paciente.cliente.nombres +' ' + paciente.cliente.apellidos}}</a>
+                          <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
+                        </span>
+                        <span class="description">Direccion del dueño es: {{paciente.cliente.direccion}}</span>
+                      </div>
+                      <!-- /.user-block -->
+                      <p>
+                       Su correo : {{' '+paciente.cliente.correo}}. <br> su numero de celular es: {{' ' + paciente.cliente.celular}}<br>
+                        su número de DNI es :{{' ' + paciente.cliente.dni}}
+                      </p>
+
+                      <p>
+                        <a href="/paciente" class="link-black text-sm mr-2"><i class="fas fa-share mr-1"></i> Volver</a>
+                     
+                       
+                      </p>
+
+                    </div>
+                    <!-- /.post -->
+                  </div>
+                  <!-- /.tab-pane -->
+                  
+                  <!-- /.tab-pane -->
+
+                  
+                </div>
+                <!-- /.tab-content -->
+              </div><!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      
+  </section>
+</div>

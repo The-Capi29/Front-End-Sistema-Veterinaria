@@ -1,0 +1,34 @@
+.example-full-width{
+    padding: 10px;
+}
+.button{
+   margin-top: 20px;
+   left: 10px;
+}
+.icon{
+    display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scrollable-content {
+  max-height: 700px; /* Ajusta la altura máxima según tus necesidades */
+  overflow-y: auto; /* Habilita el desbordamiento vertical */
+}
+
+.example-h2 {
+  margin: 10px;
+}
+
+.example-section {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  flex-direction: column; /* Agrega esta línea para cambiar la dirección del flexbox */
+  height: 60px;
+  margin-top: 27px;
+}
+
+.example-margin {
+  margin: 0 10px;
+}

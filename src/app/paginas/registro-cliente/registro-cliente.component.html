@@ -1,0 +1,188 @@
+<app-nav-sidebar></app-nav-sidebar>
+<app-nav-header></app-nav-header>
+
+<div class="content-wrapper">
+  <section class="content scrollable-content">
+
+    <div class="col-md-23" style="margin-top: 3%">
+      <div>
+        <button type="button" mat-raised-button color="primary" data-toggle="modal" data-target="#exampleModal">Nuevo
+          cliente</button>
+
+      </div>
+      <div class="col-md-12" style="margin-top: 3%">
+        <div class="mat-elevation-z8">
+          <table mat-table [dataSource]="dataSource">
+
+         
+            <ng-container matColumnDef="Codigo">
+              <th mat-header-cell *matHeaderCellDef> Codigo </th>
+              <td mat-cell *matCellDef="let element"> {{element.id_cliente}} </td>
+            </ng-container>
+
+           
+            <ng-container matColumnDef="Nombre">
+              <th mat-header-cell *matHeaderCellDef> Nombre </th>
+              <td mat-cell *matCellDef="let element"> {{element.nombres}} </td>
+            </ng-container>
+
+           
+            <ng-container matColumnDef="Apellido">
+              <th mat-header-cell *matHeaderCellDef> Apellido </th>
+              <td mat-cell *matCellDef="let element"> {{element.apellidos}} </td>
+            </ng-container>
+
+           
+            <ng-container matColumnDef="N° DNI">
+              <th mat-header-cell *matHeaderCellDef> N° DNI</th>
+              <td mat-cell *matCellDef="let element"> {{element.dni}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Acción">
+              <th mat-header-cell *matHeaderCellDef> Accion</th>
+              <td mat-cell *matCellDef="let element"> 
+                <button type="button"  (click)="busca(element)" mat-icon-button color="primary"  aria-label="Example icon button with a vertical three dot icon" data-toggle="modal"
+                  data-target="#updateCustomers">
+                  <mat-icon>create</mat-icon>
+                </button>
+
+                <button mat-icon-button color="warn" aria-label="Example icon button with a vertical three dot icon"
+                  type="button" (click)="eliminar(element.id_cliente)" *ngIf="loginService.isLoggedIn() && loginService.getUserRoles() !== 'VETERINARIO'">
+                  <mat-icon>delete_forever</mat-icon>
+                </button>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+
+          <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+            aria-label="">
+          </mat-paginator>
+        </div>
+      </div>
+
+
+      <div class="modal fade" id="updateCustomers" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="modal-title" id="exampleModalLabel">ACTUALIZAR DATOS</h3>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form (ngSubmit)="actualizar()">
+
+                <div class="row" style="margin-top: 3%">
+                  <div class="col-lg-3">
+                    <label for="dni">CODIGO</label>
+                    <input type="text" class="form-control" name="id_cliente" id="id_cliente" [(ngModel)]="cliente.id_cliente" />
+                  </div>
+                  <div class="col-lg-6">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" id="nombre" [(ngModel)]="cliente.nombres">
+                  </div>
+                  <div class="col-lg-6">
+                    <label for="dni">apellidos</label>
+                    <input type="text" class="form-control" name="apellido" id="apellido"  [(ngModel)]="cliente.apellidos" />
+                  </div>
+                  <div class="col-lg-6">
+                    <label for="dni">Dirección</label>
+                    <input type="text" class="form-control" name="direccion" id="direccion" [(ngModel)]="cliente.direccion"/>
+                  </div>
+                  <div class="col-lg-3">
+
+                    <label for="dni">celular</label>
+                    <input type="text" class="form-control" name="celular" id="celular" [(ngModel)]="cliente.celular" [maxLength]="9"/>
+                  </div>
+                  <div class="col-lg-6">
+                    <label for="dni">Correo</label>
+                    <input type="text" class="form-control" name="correo" id="correo" [(ngModel)]="cliente.correo" />
+                  </div>
+                  <div class="col-lg-3">
+                    <label for="dni">N° Documento</label>
+                    <input type="text" class="form-control" name="documento" id="dni"  [(ngModel)]="cliente.dni" [maxLength]="8"/>
+                  </div>
+                  
+                 
+                </div><br>
+
+               
+                <div class="modal-footer">
+                  <button type="button" mat-raised-button class="btn" data-dismiss="modal">Cerrar</button>
+                  <button type="submit" mat-raised-button color="primary" class="btn" >Actualizar</button>
+                </div>
+              </form>
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="modal-title" id="exampleModalLabel">Registro de datos</h3>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form (ngSubmit)="guardar()">
+
+                <div class="row" style="margin-top: 3%">
+                  <div class="col-lg-6">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" id="nombre" [(ngModel)]="cliente.nombres">
+                  </div>
+                  <div class="col-lg-6">
+                    <label for="dni">apellidos</label>
+                    <input type="text" class="form-control" name="apellido" id="apellido"  [(ngModel)]="cliente.apellidos" />
+                  </div>
+                  <div class="col-lg-6">
+                    <label for="dni">Dirección</label>
+                    <input type="text" class="form-control" name="direccion" id="direccion" [(ngModel)]="cliente.direccion"/>
+                  </div>
+                  <div class="col-lg-3">
+
+                    <label for="dni">celular</label>
+                    <input type="text" class="form-control" name="celular" id="celular" [(ngModel)]="cliente.celular" [maxLength]="9"/>
+                  </div>
+                  <div class="col-lg-6">
+                    <label for="dni">Correo</label>
+                    <input type="text" class="form-control" name="correo" id="correo" [(ngModel)]="cliente.correo" />
+                  </div>
+                  <div class="col-lg-3">
+                    <label for="dni">N° Documento</label>
+                    <input type="text" class="form-control" name="documento" id="dni"  [(ngModel)]="cliente.dni" [maxLength]="8"/>
+                  </div>
+                  
+                 
+                </div><br>
+
+               
+                <div class="modal-footer">
+                  <button type="button" mat-raised-button class="btn" data-dismiss="modal">Cerrar</button>
+                  <button type="submit" mat-raised-button color="primary" class="btn" (click)="guardar">Guardar</button>
+                </div>
+              </form>
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+</div>

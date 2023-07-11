@@ -1,0 +1,143 @@
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+  
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="../../../assets/logo.png" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+          <a class="d-block">Veterinaria PETCLINIC</a>
+        </div>
+      </div>
+
+     
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        
+          
+          <li class="nav-header">ADMINISTRACIÓN DE DATOS</li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Mantenimiento
+                <i class="fas fa-angle-left right"></i>
+                
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/paciente" class="nav-link">
+                 
+                  <p class="p">Mascota</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/cliente" class="nav-link">
+                 
+                  <p class="p">Dueño</p>
+                </a>
+              </li>
+              <li class="nav-item" >
+                <a href="/usuario" class="nav-link" *ngIf="loginService.isLoggedIn() && loginService.getUserRoles() !== 'VETERINARIO'"> 
+                  <p class="p">Usuarios</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/veterinario" class="nav-link" *ngIf="loginService.isLoggedIn() && loginService.getUserRoles() !== 'VETERINARIO'">
+                  <p class="p">Veterinario</p>
+                </a>
+              </li>
+              
+            </ul>
+          </li>
+          
+           
+          <li class="nav-header">ATENCIÓN</li>
+         
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon far fa-calendar-alt"></i>
+              <p>
+                Citas
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/cita" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Registrar citas</p>
+                </a>
+              </li>
+              
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-tree"></i>
+              <p>
+                Negocio
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/servicio" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Servicios</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/producto" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Producto</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/categoria" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Categoria</p>
+                </a>
+              </li>  
+            
+            </ul>
+          </li>
+         
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-search"></i>
+              <p>
+                Consultas
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="pages/search/simple.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Citas</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/search/enhanced.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Ventas</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+         
+          
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>

@@ -1,0 +1,259 @@
+<app-nav-sidebar></app-nav-sidebar>
+<app-nav-header></app-nav-header>
+
+<div class="content-wrapper"><br>
+    <section class="content scrollable-content">
+        <div class="col-md-12">
+            <div class="card card-primary card-outline">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        <i class="fas fa-edit"></i>
+                        Programar Citas
+                    </h3>
+                </div>
+
+
+                <div class="card-customers">
+                    <form (ngSubmit)="RegistroCita()">
+                        <mat-tab-group>
+                            <mat-tab label="Buscar">
+                                <div class="card-mat">
+                                    <h1>Buscar Paciente</h1>
+                                    <div class="form-row">
+
+                                        <div class="form-group col-md-2">
+                                            <mat-form-field class="example-full-width">
+                                                <mat-label>CODIGO</mat-label>
+                                                <input matInput disabled [(ngModel)]="id_paciente" name="id_paciente">
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <mat-form-field class="example-full-width">
+                                                <mat-label>APODO</mat-label>
+                                                <input matInput disabled [(ngModel)]="apodo" name="apodo">
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <mat-form-field class="example-full-width">
+                                                <mat-label>ESPECIE</mat-label>
+                                                <input matInput disabled [(ngModel)]="especie" name="especie">
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <mat-form-field class="example-full-width">
+                                                <mat-label>EDAD</mat-label>
+                                                <input matInput [(ngModel)]="edad" disabled name="edad">
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <mat-form-field class="example-full-width">
+                                                <mat-label>FECHA DE NACIMIENTO</mat-label>
+                                                <input matInput disabled [(ngModel)]="fechaNacimiento"
+                                                    name="fechaNacimiento">
+                                            </mat-form-field>
+                                        </div>
+
+                                        <div class="form-group col-md-2"><br>
+
+                                            <button mat-fab extended color="accent" type="button" data-toggle="modal"
+                                                data-target="#searchPaciente">
+                                                <mat-icon>find_in_page</mat-icon>
+                                                Buscar paciente
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <h1>Buscar veterinario</h1>
+                                    <div class="form-row">
+
+                                        <div class="form-group col-md-2">
+                                            <mat-form-field class="example-full-width">
+                                                <mat-label>CODIGO</mat-label>
+                                                <input value="CODIGO" matInput disabled [(ngModel)]="id_veterinario"
+                                                    name="id_veterinario" required>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <mat-form-field class="example-full-width">
+                                                <mat-label>NOMBRE</mat-label>
+                                                <input matInput disabled [(ngModel)]="nombres" name="nombres" required>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <mat-form-field class="example-full-width">
+                                                <mat-label>ESPECIALIDAD</mat-label>
+                                                <input matInput disabled [(ngModel)]="especialidad" name="especialidad"
+                                                    required>
+                                            </mat-form-field>
+                                        </div>
+
+
+                                        <div class="form-group col-md-3"><br>
+
+                                            <button mat-fab extended color="accent" type="button" data-toggle="modal"
+                                                data-target="#searchVeterinario">
+                                                <mat-icon>find_in_page</mat-icon>
+                                                Buscar veterinario
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </mat-tab>
+                            <mat-tab label="Detallar">
+                                <div class="card-mat">
+                                    <h1>Detalle de la cita</h1>
+                                    <div class="form-row">
+
+                                        <div class="form-group col-md-3">
+                                            <mat-form-field class="example-full-width">
+                                                <mat-label>Programar fecha de cita</mat-label>
+                                                <input matInput [matDatepickerFilter]="myFilter"
+                                                    [matDatepicker]="picker" [(ngModel)]="citas.fecha_atencion"
+                                                    name="fecha_atencion">
+
+                                                <mat-datepicker-toggle matIconSuffix
+                                                    [for]="picker"></mat-datepicker-toggle>
+                                                <mat-datepicker #picker></mat-datepicker>
+                                            </mat-form-field>
+                                            
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <mat-form-field class="example-full-width descripcion">
+                                                <mat-label>DESCRIPCION</mat-label>
+                                                <input matInput [(ngModel)]="citas.descripcion" name="descripcion">
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <div class="form-group">
+                                                <mat-form-field class="example-full-width">
+                                                    <mat-label>COSTO</mat-label>
+                                                    <input matInput [(ngModel)]="citas.costo" name="costo">
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <div class="form-group">
+                                                <mat-form-field>
+                                                    <mat-label>Seleccionar servicio</mat-label>
+                                                    <mat-select name="servicio"
+                                                        [(ngModel)]="citas.servicio!.id_servicio">
+
+                                                        <mat-option *ngFor="let obj of serviciocbo"
+                                                            value="{{obj.id_servicio}}">{{obj.nombre}}</mat-option>
+                                                    </mat-select>
+                                                </mat-form-field>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </mat-tab>
+                        </mat-tab-group>
+                        <br>
+
+
+                        <div class="button">
+
+                            <button type="submit" mat-fab extended color="primary">
+                                <mat-icon>favorite</mat-icon>
+                                Registrar cita
+                            </button>
+                        </div>
+
+
+
+                    </form>
+                </div>
+
+
+
+
+            </div>
+
+
+            <div class="modal fade" id="searchPaciente" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2 class="modal-title" id="exampleModalLabel">SELECIONAR PACIENTE</h2>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Codigo</th>
+                                        <th scope="col">Apodo</th>
+                                        <th scope="col">Edad</th>
+                                        <th scope="col">Especie</th>
+                                        <th scope="col">Fecha de nacimiento</th>
+                                        <th scope="col">Selección</th>
+                                    </tr>
+                                </thead>
+                                <tbody *ngFor="let item of paciente">
+
+                                    <tr>
+                                        <td>{{item.id_paciente}}</td>
+                                        <td>{{item.apodo}}</td>
+                                        <td>{{item.edad}}</td>
+                                        <td>{{item.especie}}</td>
+                                        <td>{{item.fechaNacimiento}}</td>
+                                        <td style="width: 10%;"><button type="button" mat-icon-button color="primary"
+                                                (click)="seleccionarFilaPaciente(item)"><mat-icon>touch_app</mat-icon></button>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="searchVeterinario" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2 class="modal-title" id="exampleModalLabel">¿QUIÉN ATENDERÁ A NUESTRO PACIENTE?</h2>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Codigo</th>
+                                        <th scope="col">Nombre</th>
+                                        <th scope="col">Especialidad</th>
+                                        <th scope="col">Selección</th>
+                                    </tr>
+                                </thead>
+                                <tbody *ngFor="let item of veterinaria">
+                                    <tr>
+                                        <td>{{item.id_veterinario}}</td>
+                                        <td>{{item.nombres}}</td>
+                                        <td>{{item.especialidad}}</td>
+                                        <td style="width: 10%;"><button type="button" mat-icon-button color="primary"
+                                                (click)="seleccionarFila(item)"><mat-icon>touch_app</mat-icon></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+</div>

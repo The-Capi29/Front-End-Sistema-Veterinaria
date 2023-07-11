@@ -1,0 +1,50 @@
+<app-nav-sidebar></app-nav-sidebar>
+<app-nav-header></app-nav-header>
+
+<div class="content-wrapper">
+    <section class="content scrollable-content">
+        <section class="seccion-perfil-usuario">
+            <div class="perfil-usuario-header">
+                <div class="perfil-usuario-portada">
+                    <div class="perfil-usuario-avatar">
+                        <img class="perfil" src="https://picsum.photos/200/300?timestamp=123456789" alt="img-avatar">
+                      
+                    </div>
+                </div>
+            </div>
+            <div class="perfil-usuario-body">
+                <div class="perfil-usuario-bio">
+                    <h3 class="titulo">{{' '+loginService.getUser().name +' '+ loginService.getUser().lastname }}</h3>
+                  
+                    
+                    
+                    <mat-form-field class="imput">
+                        <mat-label>Descripcion</mat-label>
+                        <textarea matInput  [(ngModel)]="textoEditable" placeholder="Ingrese el texto aquí"></textarea>
+                      </mat-form-field>
+                      <button mat-button color="primary" (click)="guardarTexto()" >Guardar</button>
+                </div>
+                <div class="perfil-usuario-footer">
+                    <ul class="lista-datos">
+                        <li><i class="icono fas fa-map-signs"></i> Direccion de usuario:  </li>
+                        <li><i class="icono fas fa-phone-alt"></i> Telefono: {{+loginService.getUser().phone}}</li>
+                        <li><i class="icono fas fa-briefcase"></i> Estado: {{' '+loginService.getUser().enable ? 'Activo' : 'Inactivo'}}</li>
+                        <li><i class="icono fas fa-building"></i> Cargo: </li>
+                    </ul>
+                    <ul class="lista-datos">
+                        <li><i class="icono fas fa-map-marker-alt"></i> Ubicacion.</li>
+                        <li><i class="icono fas fa-calendar-alt"></i> Fecha nacimiento.</li>
+                        <li><i class="icono fas fa-user-check"></i> Nombre usuario: {{' '+loginService.getUser().username}} </li>
+                        <li><i class="icono fas fa-share-alt"></i> Email:{{' '+loginService.getUser().email}} </li>
+                    </ul>
+                </div>
+                <div class="redes-sociales">
+                    <a href="#" class="boton-redes facebook fab fa-facebook-f"><i class="icon-facebook"></i></a>
+                    <a href="#" class="boton-redes twitter fab fa-twitter"><i class="icon-twitter"></i></a>
+                    <a href="#" class="boton-redes instagram fab fa-instagram"><i class="icon-instagram"></i></a>
+                </div>
+            </div>
+        </section>
+        
+    </section>
+</div>

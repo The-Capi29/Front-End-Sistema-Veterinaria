@@ -1,0 +1,248 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+body::-webkit-scrollbar{
+    width: 10px;
+}
+
+body::-webkit-scrollbar-thumb{
+    background: #333030;
+    border-radius: 0.5rem;
+}
+
+body::-webkit-scrollbar-track{
+    background: rgb(163, 162, 162);
+    opacity: 0.5;
+    border-radius: 0.5rem;
+}
+body::-webkit-scrollbar-track:hover{
+    background: rgb(128, 127, 127);
+    opacity: 0.5;
+    border-radius: 0.5rem;
+}
+
+.navegacion{
+    --tw-bg-opacity: 0.4;
+    background-color: rgb(148 163 184 / var(--tw-bg-opacity));
+    padding-bottom: 1.25rem;
+    padding-top: 0.75rem;
+    padding-right: 2.5rem;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 40;
+    font-weight: 500;
+    margin-right: 1.25rem;
+    color: rgb(255 255 255);
+}
+
+.enlace{
+    text-decoration: none;
+    color: black;
+    border-radius: 0.5rem;
+    margin-right: 0.25rem;
+    padding: 0.75rem;
+}
+
+.enlace:hover{
+    background-color: rgb(156 163 175);
+}
+
+.secciones{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    scroll-snap-type: mandatory;
+}
+
+.info{
+    background-image: url("../../../assets/fondo.jpg");
+    background-position: center;
+    background-size: cover;
+    width: 100vw;
+    height: 80vh;
+    text-align: justify;
+    position: relative;
+    overflow: hidden;
+    scroll-snap-align:start;
+}
+
+.contenido-info{
+    z-index: 30;
+    position: relative;
+    color:black;
+    width: 43%;
+    padding: 1.25rem;
+    margin-top: 8rem;
+    margin-left: 1.25rem;
+}
+.card1 img{
+    width: 70%;
+    padding: 10px;
+    margin-top: 12px;
+}
+
+.titulo{
+    font-size: 3rem;
+    padding: 10px;
+}
+
+.parrafo{
+    font-size: 1rem;
+    line-height: 1.5rem;
+    padding: 0.5rem;
+}
+
+.imagen{
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+}
+
+.foto{
+    object-fit: cover;
+    width: 100%;
+}
+
+.equipo{
+    /*background-color: rgba(43, 40, 40, 0.678);*/
+    width: 100vw;
+    height: 70%;
+    text-align: center;
+    
+    position: relative;
+    
+    scroll-snap-align:start;
+}
+.nosotros{
+    display: flex;
+    padding: 20px;
+    
+}
+
+.barra{
+
+    margin-bottom: 3.5rem;
+    width: 100%;
+    font-size: 3rem;
+    padding: 1.25rem;
+    color: black;
+    background-color:#f2f2f2;
+}
+
+.veterinarios{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1.25rem;
+}
+
+.medico{
+    margin: 1.25rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.imgVet{
+    width: 14rem;
+}
+
+.descripcion{
+    background-color: rgb(34, 197, 94);
+    color: rgb(255 255 255);
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    width: 14rem;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+}
+.chat-toggle {
+    display: none;
+  }
+  
+  .chat-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 1px solid black; 
+    background-image: url("../../../assets/logo.png");
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+    z-index: 50;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  #chatToggle:checked ~ .chat-button {
+    display: none;
+  }
+  
+  #chatToggle:checked ~ #chatContainer {
+    display: block;
+  }
+  
+  #chatContainer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 400px;
+    height: 400px;
+    display: none;
+  }
+  
+  #chatContainer iframe {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .minimize-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    cursor: pointer;
+    z-index: 60;
+  }
+  
+  .minimize-button svg {
+    width: 100%;
+    height: 100%;
+    stroke: black;
+  }
+  
+  #chatToggle:checked ~ #chatContainer .minimize-button {
+    display: block;
+  }
+  
+  #chatToggle:not(:checked) ~ #chatContainer .minimize-button {
+    display: none;
+  }
+  .footer {
+    background-color: #f2f2f2;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .footer-content {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .card{
+    width: 50%;
+    padding: 20px;
+  }
